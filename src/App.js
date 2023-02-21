@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import patientApi from './api/patient-api'
+import { useEffect, useState } from 'react'
 
-function App() {
+import { SimpleContainer } from './components/SimpleContainer'
+
+
+export const App = () => {
+  const [patients, setPatients] = useState([])
+  const [error, setError] = useState({})
+
+
+  const loadData = async () => {
+    await patientApi.get()
+      .then(function (response) {
+        console.log("🚀 ~ file: App.js:15 ~ response", response)
+        setPatients(response.data.items)
+      })
+      .catch(function (error) {
+        if (error.message) {
+          setError(error)
+        }
+      });
+  }
+
+  useEffect(() => {
+    loadData()
+  }, [])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <div>
+      <SimpleContainer data={patients} error={error} />
+    </div >
+  )
 }
 
-export default App;

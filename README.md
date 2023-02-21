@@ -39,32 +39,36 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Instructions (API configuraions) 
+  
+  src/api/patient-api.js contains basic API configurations. 
+  We can edit the baseURL and test the functionality with any other url.
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Following are the Major Libraries used in this project.
 
-### Analyzing the Bundle Size
+  1. Axios:  is a HTTP client library based on promises. It makes sending asynchronous HTTP requests to REST endpoints easier and helps you perform CRUD operations.
+  2. Material UI : is an open-source React component library,which includes a comprehensive collection of prebuilt components.
+  3. Material UI Data grid : Data tables display information in a grid-like format of rows and columns which includes features like sort, filter and edit. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Sort features
 
-### Advanced Configuration
+  By default, sorting is enabled in the ascending order of patient_id.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+  In practice, when you click a column that is not sorted, 
+  it will sort in ascending (asc). The next click will make it sort in descending (desc). 
+  Another click will remove the sort (null), reverting to the order that the data was provided in.
 
-### Deployment
+## Columns Visibility
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+  patient_id, patient_name, patient_dob (date of birth), timestamp and state fields will all be immediately visible for all items.
 
-### `npm run build` fails to minify
+  We can toggle the visibility of other columns by clicking on "Columns" toolbar menu and select the appropriate one.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Error handling
+
+  If REST API call fails,  it will show an error message. 
